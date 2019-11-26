@@ -87,8 +87,11 @@ class ViewController: UIViewController {
                 
             }
             
-            // Assign the new phone number to the output text view
-            outputPhoneNumbers.text += translatedPhoneNumber + "\n"
+            // Only output phone numbers that are the correct number of digits
+            if translatedPhoneNumber.count == 12 {
+                // Assign the new phone number to the output text view
+                outputPhoneNumbers.text += translatedPhoneNumber + "\n"
+            }
             
         }
         
