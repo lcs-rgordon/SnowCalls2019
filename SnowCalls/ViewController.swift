@@ -10,11 +10,90 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK: Properties and Outlets
+    @IBOutlet weak var inputPhoneNumbers: UITextView!
+    @IBOutlet weak var outputPhoneNumbers: UITextView!
+    
+    
+    // MARK: Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    // MARK: Actions
+    @IBAction func convertPhoneNumbers(_ sender: Any) {
+        
+        // Clear the output phone numbers list
+        outputPhoneNumbers.text = ""
+        
+        // 1. INPUT
+        guard let input = inputPhoneNumbers.text, inputPhoneNumbers.text.count > 0 else {
+            outputPhoneNumbers.text = "Please enter phone numbers to convert."
+            return
+        }
+        
+        // 2. PROCESS & OUTPUT
+        
+        // Split given list of numbers into individual lines
+        let phoneNumbers = input.split(separator: "\n")
+        
+        // Iterate over each number in the new collection
+        for phoneNumber in phoneNumbers {
+            print(phoneNumber)
 
+            // Create the translated phone number
+            var translatedPhoneNumber = ""
+            
+            // Iterate over each character in the collection and build the new phone number
+            for character in phoneNumber {
+                
+                // Translate the character
+                switch character {
+                case "A", "B", "C":
+                    translatedPhoneNumber += "2"
+                case "D", "E", "F":
+                    translatedPhoneNumber += "3"
+                case "G", "H", "I":
+                    translatedPhoneNumber += "4"
+                case "J", "K", "L":
+                    translatedPhoneNumber += "5"
+                case "M", "N", "O":
+                    translatedPhoneNumber += "6"
+                case "P", "Q", "R", "S":
+                    translatedPhoneNumber += "7"
+                case "T", "U", "V":
+                    translatedPhoneNumber += "8"
+                case "W", "X", "Y", "Z":
+                    translatedPhoneNumber += "9"
+                case "-":
+                    translatedPhoneNumber += ""
+                default:
+                    translatedPhoneNumber += String(character)
+                }
+                
+                // Add a dash after 3 and 7 characters
+                if translatedPhoneNumber.count == 3 || translatedPhoneNumber.count == 7 {
+                    translatedPhoneNumber += "-"
+                }
+                
+                // Stop translating after 12 characters
+                if translatedPhoneNumber.count == 12 {
+                    
+                    // Stop the loop
+                    break
+                    
+                }
+                
+            }
+            
+            // Assign the new phone number to the output text view
+            outputPhoneNumbers.text += translatedPhoneNumber + "\n"
+            
+        }
+        
+    }
+    
 
 }
 

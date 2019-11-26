@@ -29,6 +29,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Convert"/>
+                                <connections>
+                                    <action selector="convertPhoneNumbers:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jeh-E9-ckL"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2ZB-dS-HrL">
                                 <rect key="frame" x="20" y="307" width="374" height="211"/>
@@ -43,6 +46,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="inputPhoneNumbers" destination="X5M-Ja-SPe" id="lyJ-yd-RDK"/>
+                        <outlet property="outputPhoneNumbers" destination="2ZB-dS-HrL" id="5at-lA-pDH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
