@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextViewDelegate {
 
     // MARK: Properties and Outlets
     @IBOutlet weak var inputPhoneNumbers: UITextView!
@@ -22,6 +22,9 @@ class ViewController: UIViewController {
         
         // Give the focus to the input textview when the program begins
         inputPhoneNumbers.becomeFirstResponder()
+        
+        // Make this class (the view controller) be the delegate for the input text view
+        inputPhoneNumbers.delegate = self
 
     }
     
@@ -99,6 +102,14 @@ class ViewController: UIViewController {
             
         }
         
+    }
+    
+    // MARK: UITextView Delegate Methods
+    
+    // Called when the contents of the text view are changed.
+    func textViewDidChange(_ textView: UITextView) {
+        // Reset the output text view
+        outputPhoneNumbers.text = ""
     }
     
 
