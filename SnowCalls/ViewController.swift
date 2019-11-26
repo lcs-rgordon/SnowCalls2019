@@ -57,26 +57,28 @@ class ViewController: UIViewController, UITextViewDelegate {
                 
                 // Translate the character
                 switch character {
-                case "A", "B", "C":
+                case "0":
+                    translatedPhoneNumber += "0"
+                case "1":
+                    translatedPhoneNumber += "1"
+                case "A", "B", "C", "2":
                     translatedPhoneNumber += "2"
-                case "D", "E", "F":
+                case "D", "E", "F", "3":
                     translatedPhoneNumber += "3"
-                case "G", "H", "I":
+                case "G", "H", "I", "4":
                     translatedPhoneNumber += "4"
-                case "J", "K", "L":
+                case "J", "K", "L", "5":
                     translatedPhoneNumber += "5"
-                case "M", "N", "O":
+                case "M", "N", "O", "6":
                     translatedPhoneNumber += "6"
-                case "P", "Q", "R", "S":
+                case "P", "Q", "R", "S", "7":
                     translatedPhoneNumber += "7"
-                case "T", "U", "V":
+                case "T", "U", "V", "8":
                     translatedPhoneNumber += "8"
-                case "W", "X", "Y", "Z":
+                case "W", "X", "Y", "Z", "9":
                     translatedPhoneNumber += "9"
-                case "-":
-                    translatedPhoneNumber += ""
                 default:
-                    translatedPhoneNumber += String(character)
+                    translatedPhoneNumber += ""
                 }
                 
                 // Add a dash after 3 and 7 characters
